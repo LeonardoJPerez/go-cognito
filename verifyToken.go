@@ -32,7 +32,7 @@ func main() {
 
 	token, err := validateToken(tokenString, region, userPoolID, jwk)
 	if err != nil || !token.Valid {
-		// jwtの検証に失敗
+		// jwt Failed to validate
 		fmt.Printf("token is not valid\n%v", err)
 	} else {
 		fmt.Println("success")
@@ -59,7 +59,7 @@ func validateToken(tokenStr, region, userPoolID string, jwk map[string]JWKKey) (
 			}
 		}
 
-		// rsa public key取得できず
+		// Could not get rsa public key 
 		return "", nil
 	})
 
