@@ -20,7 +20,7 @@ func main() {
 
 	svc := cognitoidentityprovider.New(session.New(), &aws.Config{Region: aws.String("us-west-2")})
 
-	// ログイン
+	// Login
 	params := &cognitoidentityprovider.AdminInitiateAuthInput{
 		AuthFlow: aws.String("ADMIN_NO_SRP_AUTH"),
 		AuthParameters: map[string]*string{
@@ -38,7 +38,8 @@ func main() {
 	}
 	fmt.Println(resp)
 
-	// 初期パスワード変更
+	// 
+	// Initial password change
 	// session := resp.Session
 	// r_params := &cognitoidentityprovider.AdminRespondToAuthChallengeInput{
 	// 	ChallengeName: aws.String("NEW_PASSWORD_REQUIRED"),
@@ -58,7 +59,7 @@ func main() {
 	// }
 	// fmt.Println(r_resp)
 
-	// // ログアウト by AccessToken
+	// Logout by AccessToken
 	// o_params := &cognitoidentityprovider.GlobalSignOutInput{
 	// 	AccessToken: aws.String(*resp.AuthenticationResult.AccessToken),
 	// }
